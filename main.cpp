@@ -7,6 +7,7 @@ int main() {
     string sentence;
     string encrypted_pass;
     vector <char> password_by_char;
+    char encrypted_pass_characters;
     
     cout << "Enter a word (no spaces): ";
     cin >> sentence;
@@ -19,16 +20,15 @@ int main() {
 
     for(int i = 0; i < sentence.length(); i++) {
         if (i % 2 != 0) {
-            cout << "Even: " << sentence[i] << endl;
+            encrypted_pass_characters = (static_cast<char>(int(sentence[i]) - 5));
         } else {
-            cout << "Odd: " << sentence[i] << endl;
+            encrypted_pass_characters = (static_cast<char>(int(sentence[i]) + 5));
         }
         
-        
-        char encrypted_pass_characters = (static_cast<char>(int(sentence[i]) + 5));
-        encrypted_pass += encrypted_pass_characters;
-    }
+            encrypted_pass += encrypted_pass_characters;
     
+    }
+
     cout << "-----------------------------------------" << endl;
 
     cout << "Your encrypted password is " <<  encrypted_pass << endl;
